@@ -65,6 +65,30 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         var resultText = document.getElementById("results");
         resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "%<br> Probability it is a cold = " + coldPercent + "%"; 
     }
+	   
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Work', 8],
+  ['Friends', 2],
+  ['Eat', 2],
+  ['TV', 2],
+  ['Gym', 2],
+  ['Sleep', 8]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
     </script>
 
 <!--displays pages within the html body-->
@@ -110,7 +134,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 </div>
 
-<!-- Displays first question. Question 1, Page 1: Allergy Question-->	
+<!-- Displays first question. Question 1, Page 1 -->	
 <div class="page" id="one">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -119,7 +143,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
     	<div id="content" class="w3-container">
        		<p>How long have your symptoms lasted?</p>   
-<!-- Yes or No button that contributes to percentage-->	
+<!-- Buttons that contributes to percentage -->	
 	<a href="#two"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
         <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
 	<a href="#two"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
@@ -129,7 +153,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 </div>
 
-<!-- Displays second question. Question 2, Page 2: Cold Question -->
+<!-- Displays second question. Question 2, Page 2 -->
 <div class="page" id="two">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -138,15 +162,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
     	<div id="content" class="w3-container">
        		<p>How would you best describe your coughs?</p>   
-<!-- Yes or No button that contributes to percentage-->	
-	<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
-
+<!-- Buttons that contributes to percentage -->	
+	<a href="#three"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#three"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+		
     	</div>
 	
 </div>
 	
-<!-- Displays third question. Question 3, Page 3: Cold Question --> 
+<!-- Displays third question. Question 3, Page 3 --> 
 <div class="page" id="three">
 	<div class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -155,15 +181,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 	<div id="content" class="w3-container">
 		<p>Do you experience any shortness of breath?</p>
-<!-- Yes or No button that contributes to percentage-->	
-	<a href="#four"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+<!-- Buttons that contributes to percentage -->	
+	<a href="#four"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#four"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#four"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
 
 	</div>
 	
 </div>
 	
-<!-- Displays fourth question. Question 4, Page 4: Allergy Question -->
+<!-- Displays fourth question. Question 4, Page 4 --> 
 <div class="page" id="four">
 	<div class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -171,15 +199,18 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 
 	<div id="content" class="w3-container">
-		<p>How often do you sneeze?</p>
-<!-- Yes or No button that contributes to percentage-->	
-	<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#five"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
-		
+		<p>Do you experience any shortness of breath?</p>
+<!-- Buttons that contributes to percentage -->	
+	<a href="#five"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#five"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#five"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+
 	</div>
-</div>	
 	
-<!-- Displays fifth question. Question 5, Page 5: Allergy Question -->
+</div>
+	
+<!-- Displays fifth question. Question 5, Page 5 -->
 <div class="page" id="five">
 	<div class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -188,15 +219,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 		<p>Do you have a runny or stuffy nose?</p>
-<!-- Yes or No button that contributes to percentage-->	
-	<a href="#six"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#six"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+<!-- Yes or No button that contributes to percentage -->	
+	<a href="#six"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#six"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#six"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#six"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
 		
 	</div>
 		
 </div>	
 
-<!-- Displays sixth question. Question 6, Page 6: Cold Question -->	
+<!-- Displays sixth question. Question 6, Page 6 -->	
 <div class="page" id="six">
 	<div class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -205,15 +238,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 	<div id="content" class="w3-container">
 		<p>Do you have a sore throat?</p>
-<!-- Yes or No button that contributes to percentage-->	
-	<a href="#seven"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#seven"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+<!-- Yes or No button that contributes to percentage -->	
+	<a href="#seven"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#seven"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#seven"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#seven"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
 		
 	</div>
 
 </div>	
 	
-<!-- Displays seventh question. Question 7, Page 7: Allergy Question -->
+<!-- Displays seventh question. Question 7, Page 7 -->
 <div class="page" id="seven">
 	<div class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -222,16 +257,18 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 		<p>Have you experienced a fever?</p>
-<!-- Yes or No button that contributes to percentage-->	
-	<a href="#eight"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#eight"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+<!-- Yes or No button that contributes to percentage -->	
+	<a href="#eight"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#eight"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#eight"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#eight"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
 		
 	</div>
 		
 </div>	
 </div>	
 	
-<!-- Displays eigth question. Question 8, Page 8: Allergy Question -->
+<!-- Displays eighth question. Question 8, Page 8 -->
 <div class="page" id="eight">
 	<div class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -240,15 +277,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 		<p>Do you ever feel tired or weak?</p>
-<!-- Yes or No button that contributes to percentage-->	
-	<a href="#nine"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#nine"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+<!-- Yes or No button that contributes to percentage -->	
+	<a href="#nine"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#nine"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#nine"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#nine"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
 		
 	</div>
 	
 </div>	
 	
-<!-- Displays fifth question. Question 9, Page 9: Allergy Question -->
+<!-- Displays ninth question. Question 9, Page 9 -->
 <div class="page" id="nine">
 	<div class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -257,15 +296,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 		<p>How often do you experience headaches?</p>
-<!-- Yes or No button that contributes to percentage-->	
-	<a href="#ten"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#ten"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+<!-- Yes or No button that contributes to percentage -->	
+	<a href="#ten"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#ten"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#ten"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#ten"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
 		
 	</div>
 	
 </div>	
 	
-<!-- Displays fifth question. Question 10, Page 10: Allergy Question -->
+<!-- Displays ten question. Question 10, Page 10 -->
 <div class="page" id="ten">
 	<div class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -274,15 +315,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 		<p>Do you have body aches and pains?</p>
-<!-- Yes or No button that contributes to percentage-->	
-	<a href="#eleven"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#eleven"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+<!-- Yes or No button that contributes to percentage -->	
+	<a href="#eleven"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#eleven"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#eleven"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#eleven"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
 		
 	</div>
 	
 </div>	
 	
-<!-- Displays fifth question. Question 11, Page 11: Allergy Question -->
+<!-- Displays eleventh question. Question 11, Page 11 -->
 <div class="page" id="eleven">
 	<div class="w3-container w3-flat-carrot">
 		<!-- Displays header -->
@@ -292,8 +335,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 		<p>Do you experience diarrhea?</p>
 <!-- Yes or No button that contributes to percentage-->	
-	<a href="#twelve"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-        <a href="#twelve"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+	<a href="#twelve"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
+        <a href="#twelve"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
+	<a href="#twelve"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
+	<a href="#twelve"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
 		
 	</div>
 		
@@ -316,7 +361,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 <!-- Displays "results" button-->
-	<div id="content" class="w3-container">
+<div id="content" class="w3-container">
         <button onclick="showResults()">Results</button>
 		<p id="results"></p>		
 	</div>

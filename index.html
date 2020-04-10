@@ -75,10 +75,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	   
 // Load google charts
    google.charts.load('current', {'packages':['corechart']});
-   google.charts.setOnLoadCallback(drawChart);
+   google.charts.setOnLoadCallback(drawGraph);
 
 // Draw the graph
-   function chartGraph() {
+   function drawGraph() {
 	var data = google.visualization.arrayToDataTable([
 	['COVID-19', covid_count],
 	['Cold', cold_count],

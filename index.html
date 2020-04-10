@@ -34,7 +34,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
    </head> 
 
 
-   <script>
+<script>
 //COVID-19 count, questions that contribute to COVID-19 
     var covid_count = 0;
 //Cold count, questions that contribute to cold
@@ -45,17 +45,24 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     var allergy_count = 0;
 //Total number of questions 
     var total = 11;
-
+	
 //Increments and calculates allergy percentage by adding up questions related to allergies
-    function allergyAdd(){
-        allergy_count = allergy_count + 1;
+    function covidAdd(likelyhood){
+	covid_count = covid_count + likelyhood;
     }
-	   
 //Increments and calculates cold percentage by adding up questions related to cold 
-    function coldAdd(){
-        cold_count = cold_count + 1;
-
+    function coldAdd(likelyhood){
+        cold_count = cold_count + likelyhood;
     }
+//Increments and calculates allergy percentage by adding up questions related to allergies
+    function fluAdd(likelyhood){
+        flu_count = flu_count + likelyhood;
+    }
+//Increments and calculates allergy percentage by adding up questions related to allergies
+    function allergyAdd(likelyhood){
+        allergy_count = allergy_count + likelyhood;
+    }	
+	
 //Function that shows the results of the overall quiz
     function showResults() {
 //Rounds the allergy and cold percentages 
@@ -67,28 +74,28 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     }
 	   
 // Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
 
-// Draw the chart and set the chart values
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-  ['Task', 'Hours per Day'],
-  ['Work', 8],
-  ['Friends', 2],
-  ['Eat', 2],
-  ['TV', 2],
-  ['Gym', 2],
-  ['Sleep', 8]
-]);
+// Draw the chart and set the chart 
+    function drawChart() {
+	var data = google.visualization.arrayToDataTable([
+	['Task', 'Hours per Day'],
+	['Work', 8],
+	['Friends', 2],
+	['Eat', 2],
+	['TV', 2],
+	['Gym', 2],
+	['Sleep', 8]
+   ]);
 
-  // Optional; add a title and set the width and height of the chart
-  var options = {'title':'My Average Day', 'width':550, 'height':400};
+// Optional; add a title and set the width and height of the chart
+       var options = {'title':'My Average Day', 'width':550, 'height':400};
 
-  // Display the chart inside the <div> element with id="piechart"
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
-}
+// Display the chart inside the <div> element with id="piechart"
+       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+       chart.draw(data, options);
+   }
     </script>
 
 <!--displays pages within the html body-->
@@ -144,10 +151,10 @@ function drawChart() {
     	<div id="content" class="w3-container">
        		<p>How long have your symptoms lasted?</p>   
 <!-- Buttons that contributes to percentage -->	
-	<a href="#two"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#two"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+	<a href="#two"  onclick="covidAdd(1);" class="w3-btn w3-black">7-25 days</a>
+        <a href="#two"  onclick="coldAdd(1);" class="w3-btn w3-black"><14 days</a>
+	<a href="#two"  onclick="fluAdd(1);" class="w3-btn w3-black">7-14 days</a>
+	<a href="#two"  onclick="allergyAdd(1);" class="w3-btn w3-black">several weeks</a>
 	
 	</div>
 	
@@ -163,10 +170,9 @@ function drawChart() {
     	<div id="content" class="w3-container">
        		<p>How would you best describe your coughs?</p>   
 <!-- Buttons that contributes to percentage -->	
-	<a href="#three"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#three"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+	<a href="#three"  onclick="covidAdd(0.8); fluAdd(0.8); allergyAdd(0.2);" class="w3-btn w3-black">Usually dry</a>
+        <a href="#three"  onclick="coldAdd(0.8);" class="w3-btn w3-black">Mild</a>
+	<a href="#three"  onclick="allergyAdd(0.8); covidAdd(0.2); fluAdd(0.2); coldAdd(0.2);" class="w3-btn w3-black">None</a>
 		
     	</div>
 	
@@ -182,10 +188,8 @@ function drawChart() {
 	<div id="content" class="w3-container">
 		<p>Do you experience any shortness of breath?</p>
 <!-- Buttons that contributes to percentage -->	
-	<a href="#four"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#four"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#four"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+	<a href="#four"  onclick="covidAdd(0.5);" class="w3-btn w3-black">Yes</a>
+	<a href="#four"  onclick="covidAdd(0.5) coldAdd(1); fluAdd(1); alleryAdd(1);" class="w3-btn w3-black">No</a>
 
 	</div>
 	
@@ -199,12 +203,10 @@ function drawChart() {
 	</div>
 
 	<div id="content" class="w3-container">
-		<p>Do you experience any shortness of breath?</p>
+		<p>How often do you sneeze?</p>
 <!-- Buttons that contributes to percentage -->	
-	<a href="#five"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#five"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#five"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+	<a href="#five"  onclick="covidAdd(1); fluAdd(1); coldAdd(0.2); allergy(0.2);" class="w3-btn w3-black">None</a>
+        <a href="#five"  onclick="coldAdd(0.8); allergyAdd(0.8);" class="w3-btn w3-black">Usually</a>
 
 	</div>
 	
@@ -219,11 +221,9 @@ function drawChart() {
 	
 	<div id="content" class="w3-container">
 		<p>Do you have a runny or stuffy nose?</p>
-<!-- Yes or No button that contributes to percentage -->	
-	<a href="#six"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#six"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#six"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#six"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+<!-- Buttons that contributes to percentage -->	
+	<a href="#six"  onclick="covidAdd(0.8); fluAdd(0.5); coldAdd(0.2); allergyAdd(0.2);" class="w3-btn w3-black">No</a>
+        <a href="#six"  onclick="coldAdd(0.8); allergyAdd(0.8); fluAdd(0.5); covidAdd(0.2); " class="w3-btn w3-black">Yes</a>
 		
 	</div>
 		
@@ -238,11 +238,10 @@ function drawChart() {
 
 	<div id="content" class="w3-container">
 		<p>Do you have a sore throat?</p>
-<!-- Yes or No button that contributes to percentage -->	
-	<a href="#seven"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#seven"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#seven"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#seven"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+<!-- Buttons that contributes to percentage -->	
+	<a href="#seven"  onclick="coldAdd(0.8); covidAdd(0.5); fluAdd(0.5);" class="w3-btn w3-black">Yes</a>
+        <a href="#seven"  onclick="coldAdd(0.2); covidAdd(0.5); fluAdd(0.5); allergyAdd(0.5);" class="w3-btn w3-black">No</a>
+	<a href="#seven"  onclick="allergyAdd(0.5);" class="w3-btn w3-black">Yes(mild)</a>
 		
 	</div>
 
@@ -257,11 +256,10 @@ function drawChart() {
 	
 	<div id="content" class="w3-container">
 		<p>Have you experienced a fever?</p>
-<!-- Yes or No button that contributes to percentage -->	
-	<a href="#eight"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#eight"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#eight"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#eight"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+<!-- Buttons that contributes to percentage -->	
+	<a href="#eight"  onclick="covidAdd(0.8); fluAdd(0.8);" class="w3-btn w3-black">Yes</a>
+        <a href="#eight"  onclick="coldAdd(0.8);" class="w3-btn w3-black">Yes(short)</a>
+	<a href="#eight"  onclick="allergy(1); covidAdd(0.2); coldAdd(0.2); fluAdd(0.2);" class="w3-btn w3-black">No</a>
 		
 	</div>
 		
@@ -277,11 +275,10 @@ function drawChart() {
 	
 	<div id="content" class="w3-container">
 		<p>Do you ever feel tired or weak?</p>
-<!-- Yes or No button that contributes to percentage -->	
-	<a href="#nine"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#nine"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#nine"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#nine"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+<!-- Buttons that contributes to percentage -->	
+	<a href="#nine"  onclick="covidAdd();" class="w3-btn w3-black">Common</a>
+        <a href="#nine"  onclick="coldAdd();" class="w3-btn w3-black">Sometimes</a>
+	<a href="#nine"  onclick="covidAdd(0.5); coldAdd();" class="w3-btn w3-black">No</a>
 		
 	</div>
 	
@@ -296,7 +293,7 @@ function drawChart() {
 	
 	<div id="content" class="w3-container">
 		<p>How often do you experience headaches?</p>
-<!-- Yes or No button that contributes to percentage -->	
+<!-- Buttons that contributes to percentage -->	
 	<a href="#ten"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
         <a href="#ten"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
 	<a href="#ten"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
@@ -315,7 +312,7 @@ function drawChart() {
 	
 	<div id="content" class="w3-container">
 		<p>Do you have body aches and pains?</p>
-<!-- Yes or No button that contributes to percentage -->	
+<!-- Buttons that contributes to percentage -->	
 	<a href="#eleven"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
         <a href="#eleven"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
 	<a href="#eleven"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
@@ -334,7 +331,7 @@ function drawChart() {
 	
 	<div id="content" class="w3-container">
 		<p>Do you experience diarrhea?</p>
-<!-- Yes or No button that contributes to percentage-->	
+<!-- Buttons that contributes to percentage-->	
 	<a href="#twelve"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
         <a href="#twelve"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
 	<a href="#twelve"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>

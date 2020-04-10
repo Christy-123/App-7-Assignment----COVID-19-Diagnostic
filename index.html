@@ -206,7 +206,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<p>How often do you sneeze?</p>
 <!-- Buttons that contributes to percentage -->	
 	<a href="#five"  onclick="covidAdd(1); fluAdd(1); coldAdd(0.2); allergy(0.2);" class="w3-btn w3-black">None</a>
-        <a href="#five"  onclick="coldAdd(0.8); allergyAdd(0.8);" class="w3-btn w3-black">Usually</a>
+        <a href="#five"  onclick="coldAdd(0.8); allergyAdd(0.8);" class="w3-btn w3-black">Commonly</a>
 
 	</div>
 	
@@ -276,9 +276,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 		<p>Do you ever feel tired or weak?</p>
 <!-- Buttons that contributes to percentage -->	
-	<a href="#nine"  onclick="covidAdd();" class="w3-btn w3-black">Common</a>
-        <a href="#nine"  onclick="coldAdd();" class="w3-btn w3-black">Sometimes</a>
-	<a href="#nine"  onclick="covidAdd(0.5); coldAdd();" class="w3-btn w3-black">No</a>
+	<a href="#nine"  onclick="covidAdd(0.5); coldAdd(0.5); allergy(0.5); fluAdd(0.8);" class="w3-btn w3-black">Yes</a>
+	<a href="#nine"  onclick="covidAdd(0.5); coldAdd(0.5); allergy(0.5); fluAdd(0.2);" class="w3-btn w3-black">No</a>
 		
 	</div>
 	
@@ -294,10 +293,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 		<p>How often do you experience headaches?</p>
 <!-- Buttons that contributes to percentage -->	
-	<a href="#ten"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#ten"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#ten"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#ten"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+	<a href="#ten"  onclick="fluAdd(0.8);" class="w3-btn w3-black">Commonly</a>
+        <a href="#ten"  onclick="covidAdd(0.5); allergyAdd(0.5);" class="w3-btn w3-black">Sometimes</a>
+	<a href="#ten"  onclick="coldAdd(0.8);" class="w3-btn w3-black">Rarely</a>
+	<a href="#ten"  onclick="coldAdd(0.8); covidAdd(0.5); allergyAdd(0.5); fluAdd(0.2);" class="w3-btn w3-black">None</a>
 		
 	</div>
 	
@@ -313,10 +312,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 		<p>Do you have body aches and pains?</p>
 <!-- Buttons that contributes to percentage -->	
-	<a href="#eleven"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#eleven"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#eleven"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#eleven"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+	<a href="#eleven"  onclick="coldAdd(0.8); flu(0.8); covidAdd(0.5);" class="w3-btn w3-black">Yes</a>
+        <a href="#eleven"  onclick="allergyAdd(1); covidAdd(0.5); coldAdd(0.2); flu(0.2);" class="w3-btn w3-black">No</a>
 		
 	</div>
 	
@@ -332,10 +329,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 		<p>Do you experience diarrhea?</p>
 <!-- Buttons that contributes to percentage-->	
-	<a href="#twelve"  onclick="covidAdd();" class="w3-btn w3-black">7-25 days</a>
-        <a href="#twelve"  onclick="coldAdd();" class="w3-btn w3-black"><14 days</a>
-	<a href="#twelve"  onclick="fluAdd();" class="w3-btn w3-black">7-14 days</a>
-	<a href="#twelve"  onclick="allergyAdd();" class="w3-btn w3-black">several weeks</a>
+	<a href="#twelve"  onclick="covidAdd(0.5); fluAdd(0.5);" class="w3-btn w3-black">Yes</a>
+        <a href="#twelve"  onclick="fluAdd(0.5);" class="w3-btn w3-black">Yes(if child)</a>
+	<a href="#twelve"  onclick="coldAdd(1); allergyAdd(1); covidAdd(0.5); fluAdd(0.5);" class="w3-btn w3-black">No</a>
 		
 	</div>
 		

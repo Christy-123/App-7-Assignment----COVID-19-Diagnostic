@@ -74,23 +74,20 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     }
 	   
 // Load google charts
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+   google.charts.load('current', {'packages':['corechart']});
+   google.charts.setOnLoadCallback(drawChart);
 
-// Draw the chart and set the chart 
-    function drawChart() {
+// Draw the graph
+   function chartGraph() {
 	var data = google.visualization.arrayToDataTable([
-	['Task', 'Hours per Day'],
-	['Work', 8],
-	['Friends', 2],
-	['Eat', 2],
-	['TV', 2],
-	['Gym', 2],
-	['Sleep', 8]
+	['COVID-19', covid_count],
+	['Cold', cold_count],
+	['Flu', flu_count],
+	['Seasonal Allergies', allergy_count],
    ]);
 
 // Optional; add a title and set the width and height of the chart
-       var options = {'title':'My Average Day', 'width':550, 'height':400};
+       var options = {'title':'Likelyhood', 'width':550, 'height':400};
 
 // Display the chart inside the <div> element with id="piechart"
        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -355,7 +352,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 <!-- Displays "results" button-->
 <div id="content" class="w3-container">
-        <button onclick="showResults()">Results</button>
+        <button onclick="drawGraph()">Results</button>
 		<p id="results"></p>		
 	</div>
 

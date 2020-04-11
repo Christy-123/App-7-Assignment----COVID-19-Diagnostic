@@ -73,33 +73,33 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "%<br> Probability it is a cold = " + coldPercent + "%"; 
     }
     </script>
-	
-<div id="piechart"></div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
-// Load google charts
-   google.charts.load('current', {'packages':['corechart']});
-   google.charts.setOnLoadCallback(drawChart);
+	function drawGraph() {
+	// Load google charts
+	   google.charts.load('current', {'packages':['corechart']});
+	   google.charts.setOnLoadCallback(drawChart);
 
-// Draw the graph
-   function drawChart() {
-	var data = google.visualization.arrayToDataTable([
-	['Diagnosis', 'Likelyhood'],
-	['COVID-19', covid_count],
-	['Cold', cold_count],
-	['Flu', flu_count],
-	['Seasonal Allergies', allergy_count],
-   ]);
+	// Draw the graph
+	   function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+		['Diagnosis', 'Likelyhood'],
+		['COVID-19', covid_count],
+		['Cold', cold_count],
+		['Flu', flu_count],
+		['Seasonal Allergies', allergy_count],
+	   ]);
 
-// Optional; add a title and set the width and height of the chart
-       var options = {'title':'Likelyhood of Having ...', 'width':550, 'height':400};
+	// Optional; add a title and set the width and height of the chart
+	       var options = {'title':'Likelyhood of Having ...', 'width':550, 'height':400};
 
-// Display the chart inside the <div> element with id="piechart"
-       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-       chart.draw(data, options);
-   }
+	// Display the chart inside the <div> element with id="piechart"
+	       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+	       chart.draw(data, options);
+	   }
+	}
 </script>
 
 <!--displays pages within the html body-->
@@ -356,11 +356,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<!-- Displays header -->
 		<h1>Do you have COVID-19?</h1>
 	</div>
+
+<!-- Displays "results" -->
+<body onload = "drawGraph()">
+	<div id="piechart"></div>
+</body>
 	
 <!-- Displays "results" button-->
 <div id="content" class="w3-container">
-        <button onclick="drawChart()">Results</button>
-		<p id="results"></p>		
+        <button onclick="drawGraph()">Results</button>
+		<p id="results"></p>
+		<div id="piechart"></div>
 	</div>
 
 	

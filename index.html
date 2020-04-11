@@ -33,9 +33,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
 
-<div id="piechart"></div>
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	
 <script>
 //COVID-19 count, questions that contribute to COVID-19 
@@ -75,7 +72,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         var resultText = document.getElementById("results");
         resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "%<br> Probability it is a cold = " + coldPercent + "%"; 
     }
-	   
+    </script>
+	
+<div id="piechart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
 // Load google charts
    google.charts.load('current', {'packages':['corechart']});
    google.charts.setOnLoadCallback(drawChart);
@@ -96,7 +99,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
        chart.draw(data, options);
    }
-    </script>
+</script>
 
 <!--displays pages within the html body-->
 <style>	

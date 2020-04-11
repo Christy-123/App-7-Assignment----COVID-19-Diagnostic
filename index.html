@@ -47,20 +47,20 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     var total = 11;
 	
 //Increments and calculates allergy percentage by adding up questions related to allergies
-    function covidAdd(likelyhood){
-	covid_count = covid_count + likelyhood;
+    function covidAdd(likelihood){
+	covid_count = covid_count + likelihood;
     }
 //Increments and calculates cold percentage by adding up questions related to cold 
-    function coldAdd(likelyhood){
-        cold_count = cold_count + likelyhood;
+    function coldAdd(likelihood){
+        cold_count = cold_count + likelihood;
     }
 //Increments and calculates allergy percentage by adding up questions related to allergies
-    function fluAdd(likelyhood){
-        flu_count = flu_count + likelyhood;
+    function fluAdd(likelihood){
+        flu_count = flu_count + likelihood;
     }
 //Increments and calculates allergy percentage by adding up questions related to allergies
-    function allergyAdd(likelyhood){
-        allergy_count = allergy_count + likelyhood;
+    function allergyAdd(likelihood){
+        allergy_count = allergy_count + likelihood;
     }	
     </script>
 
@@ -75,7 +75,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	// Draw the graph
 	   function drawChart() {
 		var data = google.visualization.arrayToDataTable([
-		['Diagnosis', 'Likelyhood'],
+		['Diagnosis', 'Likelihood'],
 		['COVID-19', covid_count],
 		['Cold', cold_count],
 		['Flu', flu_count],
@@ -83,7 +83,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	   ]);
 
 	// Optional; add a title and set the width and height of the chart
-	       var options = {'title':'Likelyhood of Having ...', 'width':550, 'height':400};
+	       var options = {'title':'Likelihood of Having ...', 'width':600, 'height':450};
 
 	// Display the chart inside the <div> element with id="piechart"
 	       var chart = new google.visualization.PieChart(document.getElementById('piechart'));

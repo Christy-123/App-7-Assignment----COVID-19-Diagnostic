@@ -47,7 +47,7 @@ https://www.w3schools.com/howto/howto_google_charts.asp
 //Total number of questions 
     var total = 11;
 	
-//Increments and calculates allergy percentage by adding up questions related to allergies
+//Increments and calculates COVID-19 percentage by adding up questions related to COVID-19
     function covidAdd(likelihood){
 	covid_count = covid_count + likelihood;
     }
@@ -55,7 +55,7 @@ https://www.w3schools.com/howto/howto_google_charts.asp
     function coldAdd(likelihood){
         cold_count = cold_count + likelihood;
     }
-//Increments and calculates allergy percentage by adding up questions related to allergies
+//Increments and calculates flu percentage by adding up questions related to flu
     function fluAdd(likelihood){
         flu_count = flu_count + likelihood;
     }
@@ -70,11 +70,11 @@ https://www.w3schools.com/howto/howto_google_charts.asp
 	
 <script type="text/javascript">
 	function drawGraph() {
-	// Load google charts
+	// Load google charts. My plan is to create a piechart linked from google charts to display the likelihood of having the flu, a cold, COVID-19, or seasonal allergies. I used this website for reference: https://www.w3schools.com/howto/howto_google_charts.asp
 	   google.charts.load('current', {'packages':['corechart']});
 	   google.charts.setOnLoadCallback(drawChart);
 
-	// Draw the graph
+	// Draws the piechart
 	   function drawChart() {
 		var data = google.visualization.arrayToDataTable([
 		['Diagnosis', 'Likelihood'],
@@ -84,10 +84,10 @@ https://www.w3schools.com/howto/howto_google_charts.asp
 		['Seasonal Allergies', allergy_count],
 	   ]);
 
-	// Optional; add a title and set the width and height of the chart
+	// Adds a title and sets the width and height of the piechart
 	       var options = {'title':'Likelihood of Having ...', 'width':600, 'height':450};
 
-	// Display the chart inside the <div> element with id="piechart"
+	// Displays the piechart inside the <div> element which has id="piechart"
 	       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 	       chart.draw(data, options);
 	   }

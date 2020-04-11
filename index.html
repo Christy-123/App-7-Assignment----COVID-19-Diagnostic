@@ -62,16 +62,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     function allergyAdd(likelyhood){
         allergy_count = allergy_count + likelyhood;
     }	
-	
-//Function that shows the results of the overall quiz
-    function showResults() {
-//Rounds the allergy and cold percentages 
-        var covidPercent = Math.round((allergy_count / total)*100);
-        var coldPercent = Math.round((cold_count / total)*100);
-//Shows the results of the quiz
-        var resultText = document.getElementById("results");
-        resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "%<br> Probability it is a cold = " + coldPercent + "%"; 
-    }
     </script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -174,8 +164,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     	<div id="content" class="w3-container">
        		<p>How would you best describe your coughs?</p>   
 <!-- Buttons that contributes to percentage -->	
+	<a href="#three"  onclick="coldAdd(0.8);" class="w3-btn w3-black">Mild</a>
 	<a href="#three"  onclick="covidAdd(0.8); fluAdd(0.8); allergyAdd(0.2);" class="w3-btn w3-black">Usually dry</a>
-        <a href="#three"  onclick="coldAdd(0.8);" class="w3-btn w3-black">Mild</a>
 	<a href="#three"  onclick="allergyAdd(0.8); covidAdd(0.2); fluAdd(0.2); coldAdd(0.2);" class="w3-btn w3-black">None</a>
 		
     	</div>
@@ -209,8 +199,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 		<p>How often do you sneeze?</p>
 <!-- Buttons that contributes to percentage -->	
+	<a href="#five"  onclick="coldAdd(0.8); allergyAdd(0.8);" class="w3-btn w3-black">Commonly</a>
 	<a href="#five"  onclick="covidAdd(1); fluAdd(1); coldAdd(0.2); allergy(0.2);" class="w3-btn w3-black">None</a>
-        <a href="#five"  onclick="coldAdd(0.8); allergyAdd(0.8);" class="w3-btn w3-black">Commonly</a>
 
 	</div>
 	
@@ -226,8 +216,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 		<p>Do you have a runny or stuffy nose?</p>
 <!-- Buttons that contributes to percentage -->	
+	<a href="#six"  onclick="coldAdd(0.8); allergyAdd(0.8); fluAdd(0.5); covidAdd(0.2); " class="w3-btn w3-black">Yes</a>
 	<a href="#six"  onclick="covidAdd(0.8); fluAdd(0.5); coldAdd(0.2); allergyAdd(0.2);" class="w3-btn w3-black">No</a>
-        <a href="#six"  onclick="coldAdd(0.8); allergyAdd(0.8); fluAdd(0.5); covidAdd(0.2); " class="w3-btn w3-black">Yes</a>
 		
 	</div>
 		
@@ -244,8 +234,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<p>Do you have a sore throat?</p>
 <!-- Buttons that contributes to percentage -->	
 	<a href="#seven"  onclick="coldAdd(0.8); covidAdd(0.5); fluAdd(0.5);" class="w3-btn w3-black">Yes</a>
-        <a href="#seven"  onclick="coldAdd(0.2); covidAdd(0.5); fluAdd(0.5); allergyAdd(0.5);" class="w3-btn w3-black">No</a>
 	<a href="#seven"  onclick="allergyAdd(0.5);" class="w3-btn w3-black">Yes(mild)</a>
+        <a href="#seven"  onclick="coldAdd(0.2); covidAdd(0.5); fluAdd(0.5); allergyAdd(0.5);" class="w3-btn w3-black">No</a>
 		
 	</div>
 

@@ -33,7 +33,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
 
+<div id="piechart"></div>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
 <script>
 //COVID-19 count, questions that contribute to COVID-19 
     var covid_count = 0;
@@ -75,10 +78,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	   
 // Load google charts
    google.charts.load('current', {'packages':['corechart']});
-   google.charts.setOnLoadCallback(drawGraph);
+   google.charts.setOnLoadCallback(drawChart);
 
 // Draw the graph
-   function drawGraph() {
+   function drawChart() {
 	var data = google.visualization.arrayToDataTable([
 	['COVID-19', covid_count],
 	['Cold', cold_count],
@@ -149,7 +152,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
        		<p>How long have your symptoms lasted?</p>   
 <!-- Buttons that contributes to percentage -->	
 	<a href="#two"  onclick="covidAdd(1);" class="w3-btn w3-black">7-25 days</a>
-        <a href="#two"  onclick="coldAdd(1);" class="w3-btn w3-black"><14 days</a>
+        <a href="#two"  onclick="coldAdd(1);" class="w3-btn w3-black">less than 14 days</a>
 	<a href="#two"  onclick="fluAdd(1);" class="w3-btn w3-black">7-14 days</a>
 	<a href="#two"  onclick="allergyAdd(1);" class="w3-btn w3-black">several weeks</a>
 	
@@ -352,7 +355,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 <!-- Displays "results" button-->
 <div id="content" class="w3-container">
-        <button onclick="drawGraph()">Results</button>
+        <button onclick="drawChart()">Results</button>
 		<p id="results"></p>		
 	</div>
 
